@@ -1,0 +1,267 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "com.hma.cvip",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZHUS_DCT_TEST_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"ZHUS_DCT_TEST_SRV": {
+				"uri": "/sap/opu/odata/sap/ZHUS_DCT_TEST_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZHUS_DCT_TEST_SRV/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.hma.cvip.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.hma.cvip.i18n.i18n"
+				}
+			},
+			"appJSONModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/App.json"
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"useBatch": true,
+					"metadataUrlParams": {},
+					"defaultUpdateMethod": "PUT",
+					"defaultCountMode": "None",
+					"defaultBindingMode": "TwoWay"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"controlId": "mainContents",
+				"viewType": "XML",
+				"controlAggregation": "pages",
+				"viewPath": "com.hma.cvip.view",
+				"async": false
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "Home",
+					"target": "Home"
+				},
+				{
+					"pattern": "DCCA",
+					"name": "DCCA",
+					"target": "DCCA"
+				},
+				{
+					"pattern": "DGCA",
+					"name": "DGCA",
+					"target": "DGCA"
+				},
+				{
+					"pattern": "SSCA",
+					"name": "SSCA",
+					"target": "SSCA"
+				},
+				{
+					"pattern": "ELCA",
+					"name": "ELCA",
+					"target": "ELCA"
+				},
+				{
+					"pattern": "FDCA",
+					"name": "FDCA",
+					"target": "FDCA"
+				},
+				{
+					"pattern": "SalesCA",
+					"name": "SalesCA",
+					"target": "SalesCA"
+				},
+				{
+					"pattern": "SLCA",
+					"name": "SLCA",
+					"target": "SLCA"
+				},
+				{
+					"pattern": "RD/{path}",
+					"name": "RD",
+					"target": "RD"
+				},
+				{
+					"pattern": "RDDC/{path}",
+					"name": "RDDC",
+					"target": "RDDC"
+				},
+				{
+					"pattern": "RDDG/{path}",
+					"name": "RDDG",
+					"target": "RDDG"
+				},
+				{
+					"pattern": "AMUM",
+					"name": "AMUM",
+					"target": "AMUM"
+				},
+				{
+					"pattern": "AMVR",
+					"name": "AMVR",
+					"target": "AMVR"
+				},
+				{
+					"pattern": "AMPI",
+					"name": "AMPI",
+					"target": "AMPI"
+				},
+				{
+					"pattern": "AMModelList",
+					"name": "AMModelList",
+					"target": "AMModelList"
+				}
+			],
+			"targets": {
+				"Home": {
+					"viewId": "Home",
+					"viewName": "Home"
+				},
+				"DCCA": {
+					"viewId": "CreateApprovalDC",
+					"viewName": "CreateApprovalDC"
+				},
+				"DGCA": {
+					"viewId": "CreateApprovalDG",
+					"viewName": "CreateApprovalDG"
+				},
+				"SSCA": {
+					"viewId": "CreateApprovalSS",
+					"viewName": "CreateApprovalSS"
+				},
+				"ELCA": {
+					"viewId": "CreateApprovalEL",
+					"viewName": "CreateApprovalEL"
+				},
+				"FDCA": {
+					"viewId": "CreateApprovalFieldDemo",
+					"viewName": "CreateApprovalFieldDemo"
+				},
+				"SalesCA": {
+					"viewId": "CreateApprovalSales",
+					"viewName": "CreateApprovalSales"
+				},
+				"SLCA": {
+					"viewId": "CreateApprovalSpecialLease",
+					"viewName": "CreateApprovalSpecialLease"
+				},
+				"RD": {
+					"viewId": "RequestDrafted",
+					"viewName": "RequestDrafted",
+					"viewLevel": 1
+				},
+				"RDDC": {
+					"viewId": "RequestDraftedDC",
+					"viewName": "RequestDraftedDC",
+					"viewLevel": 1
+				},
+				"RDDG": {
+					"viewId": "RequestDraftedDG",
+					"viewName": "RequestDraftedDG",
+					"viewLevel": 1
+				},
+				"AMUM": {
+					"viewId": "AdminUserManagement",
+					"viewName": "AdminUserManagement",
+					"viewLevel": 1
+				},
+				"AMVR": {
+					"viewId": "AdminVIPRequest",
+					"viewName": "AdminVIPRequest",
+					"viewLevel": 1
+				},
+				"AMPI": {
+					"viewId": "AdminPricingInfo",
+					"viewName": "AdminPricingInfo",
+					"viewLevel": 1
+				},
+				"AMModelList": {
+					"viewId": "AdminModelList",
+					"viewName": "AdminModelList",
+					"viewLevel": 1
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zcvip_mar032020/webapp",
+		"_version": "1.1.0"
+	}
+}
